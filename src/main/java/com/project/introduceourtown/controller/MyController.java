@@ -1,4 +1,4 @@
-package com.project.introduceourtown.domain;
+package com.project.introduceourtown.controller;
 
 
 import org.springframework.web.bind.annotation.GetMapping;
