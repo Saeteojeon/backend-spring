@@ -6,9 +6,89 @@ spring:
       blue: blue, common, secret
       green: green, common, secret
 
+server:
+  env: blue
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local
+  security:
+    oauth2:
+      client:
+        registration:
+          naver:
+            redirect-uri: http://localhost:8080/login/oauth2/code/naver
+          kakao:
+            redirect-uri: http://localhost:8080/login/oauth2/code/kakao
+          google:
+            redirect-uri: http://localhost:8080/login/oauth2/code/google
+
+
+server:
+  port: 8080
+  serverAddress: localhost
+
+serverName: local_server
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: blue
+  security:
+    oauth2:
+      client:
+        registration:
+          naver:
+            redirect-uri: http://52.79.156.227/login/oauth2/code/naver
+          kakao:
+            redirect-uri: http://52.79.156.227/login/oauth2/code/kakao
+          google:
+            redirect-uri: http://52.79.156.227/login/oauth2/code/google
+
+server:
+  port: 8080
+  serverAddress: 52.79.156.227
+
+serverName: blue_server
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: green
+  security:
+    oauth2:
+      client:
+        registration:
+          naver:
+            redirect-uri: http://52.79.156.227/login/oauth2/code/naver
+          kakao:
+            redirect-uri: http://52.79.156.227/login/oauth2/code/kakao
+          google:
+            redirect-uri: http://52.79.156.227/login/oauth2/code/google
+
+server:
+  port: 8081
+  serverAddress: 52.79.156.227
+
+serverName: green_server
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: common
+
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 
   security:
     oauth2:
@@ -16,21 +96,18 @@ spring:
         registration:
           naver:
             client-name: naver
-            redirect-uri: http://localhost:8080/login/oauth2/code/naver
             authorization-grant-type: authorization_code
             scope:
               - name
               - email
               - profile
           kakao:
-            redirect-uri: http://localhost:8080/login/oauth2/code/kakao
             authorization-grant-type: authorization_code
             client-authentication-method: client_secret_post
             client-name: kakao
             scope: profile_nickname
           google:
             client-name: google
-            redirect-uri: http://localhost:8080/login/oauth2/code/google
             authorization-grant-type: authorization_code
             scope: profile, email
 
