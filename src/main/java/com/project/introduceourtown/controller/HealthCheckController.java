@@ -39,5 +39,4 @@ public class HealthCheckController {
         return ResponseEntity.ok(env);
     }
 
-    // 아직 cicd 구현 다 안했다
 }
