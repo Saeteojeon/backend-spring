@@ -51,7 +51,7 @@ spring:
             redirect-uri: http://3.39.16.84/login/oauth2/code/google
 
 server:
-  port: 8081
+  port: 8881
   serverAddress: 3.39.16.84
 
 serverName: blue_server
@@ -74,7 +74,7 @@ spring:
             redirect-uri: http://3.39.16.84/login/oauth2/code/google
 
 server:
-  port: 8082
+  port: 8882
   serverAddress: 3.39.16.84
 
 serverName: green_server
