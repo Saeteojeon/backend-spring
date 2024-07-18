@@ -44,15 +44,15 @@ spring:
       client:
         registration:
           naver:
-            redirect-uri: http://52.79.156.227/login/oauth2/code/naver
+            redirect-uri: http://3.39.16.84/login/oauth2/code/naver
           kakao:
-            redirect-uri: http://52.79.156.227/login/oauth2/code/kakao
+            redirect-uri: http://3.39.16.84/login/oauth2/code/kakao
           google:
-            redirect-uri: http://52.79.156.227/login/oauth2/code/google
+            redirect-uri: http://3.39.16.84/login/oauth2/code/google
 
 server:
-  port: 8080
-  serverAddress: 52.79.156.227
+  port: 8081
+  serverAddress: 3.39.16.84
 
 serverName: blue_server
 
@@ -67,15 +67,15 @@ spring:
       client:
         registration:
           naver:
-            redirect-uri: http://52.79.156.227/login/oauth2/code/naver
+            redirect-uri: http://3.39.16.84/login/oauth2/code/naver
           kakao:
-            redirect-uri: http://52.79.156.227/login/oauth2/code/kakao
+            redirect-uri: http://3.39.16.84/login/oauth2/code/kakao
           google:
-            redirect-uri: http://52.79.156.227/login/oauth2/code/google
+            redirect-uri: http://3.39.16.84/login/oauth2/code/google
 
 server:
-  port: 8081
-  serverAddress: 52.79.156.227
+  port: 8082
+  serverAddress: 3.39.16.84
 
 serverName: green_server
 
