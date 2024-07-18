@@ -49,10 +49,9 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
 
-      - name: Build docker image
+      - name: Build Docker
         run: docker build --platform linux/amd64 -t ${{ secrets.DOCKER_USERNAME }}/saeteojeon .
-
-      - name: Publish image to docker hub
+      - name: Push Docker
         run: docker push ${{ secrets.DOCKER_USERNAME }}/saeteojeon:latest
 
   deploy:
