@@ -43,6 +43,12 @@ public class SecurityConfig {
                         CorsConfiguration configuration = new CorsConfiguration();
 
                         configuration.setAllowedOrigins(Collections.singletonList("http://localhost:3000"));
+                        configuration.setAllowedOrigins(Collections.singletonList("http://localhost:8080"));
+                        configuration.setAllowedOrigins(Collections.singletonList("http://localhost:8081"));
+                        configuration.setAllowedOrigins(Collections.singletonList("http://3.37.102.94:8080"));
+                        configuration.setAllowedOrigins(Collections.singletonList("http://3.37.102.94:8081"));
+
+
                         configuration.setAllowedMethods(Collections.singletonList("*"));
                         configuration.setAllowCredentials(true);
                         configuration.setAllowedHeaders(Collections.singletonList("*"));
@@ -85,7 +91,8 @@ public class SecurityConfig {
         //경로별 인가 작업
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/").permitAll()
+                        .requestMatchers("http://3.37.102.94:8080").permitAll()
+                        .requestMatchers("http://3.37.102.94:8081").permitAll()
                         .requestMatchers("/**").permitAll()
                         .requestMatchers("/reissue").permitAll()
                         .requestMatchers("/hc" , "/env").permitAll()
