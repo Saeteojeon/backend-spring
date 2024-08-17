@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
-
+// redis활용해볼까나
 @RestController
 @RequiredArgsConstructor
 public class ReissueController {
