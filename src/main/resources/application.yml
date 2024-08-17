@@ -86,10 +86,6 @@ spring:
     activate:
       on-profile: common
 
-  jpa:
-    hibernate:
-      ddl-auto: update
-
   security:
     oauth2:
       client:
