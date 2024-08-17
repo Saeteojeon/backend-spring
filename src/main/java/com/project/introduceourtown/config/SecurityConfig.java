@@ -19,6 +19,7 @@ import org.springframework.security.web.authentication.logout.LogoutFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
+import java.util.Arrays;
 import java.util.Collections;
 
 @Configuration
@@ -47,6 +48,7 @@ public class SecurityConfig {
                         configuration.setAllowedOrigins(Collections.singletonList("http://localhost:8081"));
                         configuration.setAllowedOrigins(Collections.singletonList("http://3.37.102.94:8080"));
                         configuration.setAllowedOrigins(Collections.singletonList("http://3.37.102.94:8081"));
+                        configuration.setAllowedMethods(Arrays.asList("*"));
 
 
                         configuration.setAllowedMethods(Collections.singletonList("*"));
