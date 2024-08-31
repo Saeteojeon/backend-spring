@@ -33,7 +33,7 @@ public class FlaskService {
         HttpEntity<String> entity = new HttpEntity<String>(param , headers);
 
         //실제 Flask 서버랑 연결하기 위한 URL
-        String url = "http://localhost:5000";
+        String url = "http://3.39.251.155:5001/get/gpt_request";
 
         //Flask 서버로 데이터를 전송하고 받은 응답 값을 return
         return restTemplate.postForObject(url, entity, String.class);
