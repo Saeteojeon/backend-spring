@@ -17,7 +17,9 @@ public class CorsMvcConfig implements WebMvcConfigurer {
                 .allowedOrigins("http://localhost:8081")
                 .allowedOrigins("http://3.37.102.94:8080")
                 .allowedOrigins("http://3.37.102.94:8081")
+                .allowedOrigins("http://3.39.251.155:5001")
                 .allowedOrigins("http://localhost:3000");
+
     }
 
 }
