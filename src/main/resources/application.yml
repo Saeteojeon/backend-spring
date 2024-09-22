@@ -44,11 +44,11 @@ spring:
       client:
         registration:
           naver:
-            redirect-uri: http://3.37.102.94/login/oauth2/code/naver
+            redirect-uri: http://saeteojeon.site/login/oauth2/code/naver
           kakao:
             redirect-uri: http://saeteojeon.site/login/oauth2/code/kakao
           google:
-            redirect-uri: http://3.37.102.94/login/oauth2/code/google
+            redirect-uri: http://saeteojeon.site/login/oauth2/code/google
 
 server:
   port: 8080
@@ -67,11 +67,11 @@ spring:
       client:
         registration:
           naver:
-            redirect-uri: http://3.37.102.94/login/oauth2/code/naver
+            redirect-uri: http://saeteojeon.site/login/oauth2/code/naver
           kakao:
             redirect-uri: http://saeteojeon.site/login/oauth2/code/kakao
           google:
-            redirect-uri: http://3.37.102.94/login/oauth2/code/google
+            redirect-uri: http://saeteojeon.site/login/oauth2/code/google
 
 server:
   port: 8081
