@@ -1,20 +1,24 @@
 package com.project.introduceourtown.domain;
 
-import lombok.Builder;
-import lombok.Getter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.redis.core.RedisHash;
-//redis를 활용한 refreshToken
-@Getter
-@RedisHash(value = "refreshToken", timeToLive = 14440)
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.*;
+
+@Entity
 @Builder
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class RefreshEntity {
+
     @Id
     private String refresh;
 
     private String username;
 
     private String expiration;
-
 
 }
