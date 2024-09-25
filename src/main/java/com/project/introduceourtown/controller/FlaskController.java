@@ -7,9 +7,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,9 +18,12 @@ public class FlaskController {
     /**
      * Flask로 데이터 전송
      */
-    @PostMapping("/flask")
-    @Operation(summary = "프론트에서 받은 질문을 AI서버로 전달 후 응답 받기")
-    public ResponseEntity<?> sendToFlask(@RequestBody FlaskRequestDto dto) throws JsonProcessingException {
+    @GetMapping("/find/town/{memberId}")
+    @Operation(summary = "동네 추천 api")
+    public ResponseEntity<?> sendToAIserver(//@AuthenticationPrincipal CustomOAuth2User userDetails,
+                                            @PathVariable(value = "memberId")Long memberId,
+                                            @RequestBody FlaskRequestDto dto) throws JsonProcessingException {
+        // Long memberId = userDetails.getMemberId();
         return ResponseEntity.status(HttpStatus.OK).body(flaskService.sendToFlask(dto));
     }
 }

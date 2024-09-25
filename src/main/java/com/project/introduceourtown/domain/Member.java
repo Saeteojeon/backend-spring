@@ -1,10 +1,10 @@
 package com.project.introduceourtown.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Builder
@@ -29,4 +29,7 @@ public class Member {
     private String role;
 
     private String username;
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private List<Keyword> keyWordList = new ArrayList<>();
 }

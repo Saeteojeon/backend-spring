@@ -4,6 +4,7 @@ import com.project.introduceourtown.jwt.CustomLogoutFilter;
 import com.project.introduceourtown.jwt.JWTFilter;
 import com.project.introduceourtown.jwt.JWTUtil;
 import com.project.introduceourtown.oauth2.CustomSuccessHandler;
+import com.project.introduceourtown.repository.MemberRepository;
 import com.project.introduceourtown.repository.RefreshRepository;
 import com.project.introduceourtown.service.CustomOAuth2UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -31,6 +32,7 @@ public class SecurityConfig {
     private final CustomSuccessHandler customSuccessHandler;
     private final JWTUtil jwtUtil;
     private final RefreshRepository refreshRepository;
+    private final MemberRepository memberRepository;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -77,7 +79,7 @@ public class SecurityConfig {
 
         //JWTFilter 추가
         http
-                .addFilterAfter(new JWTFilter(jwtUtil), OAuth2LoginAuthenticationFilter.class);
+                .addFilterAfter(new JWTFilter(jwtUtil,memberRepository), OAuth2LoginAuthenticationFilter.class);
 
         http
                 .addFilterBefore(new CustomLogoutFilter(jwtUtil, refreshRepository), LogoutFilter.class);
