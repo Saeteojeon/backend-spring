@@ -1,7 +1,9 @@
 package com.project.introduceourtown.jwt;
 
+import com.project.introduceourtown.domain.Member;
 import com.project.introduceourtown.dto.OAuth2Reponse.CustomOAuth2User;
 import com.project.introduceourtown.dto.OAuth2Reponse.OAuthUserDTO;
+import com.project.introduceourtown.repository.MemberRepository;
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -21,7 +23,7 @@ import java.io.PrintWriter;
 public class JWTFilter extends OncePerRequestFilter {
 
     private final JWTUtil jwtUtil;
-
+    private final MemberRepository memberRepository;
     @Override
     public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         //access 토큰은 header에 발급, refreshToken은 쿠키에 발급
@@ -67,11 +69,13 @@ public class JWTFilter extends OncePerRequestFilter {
         //토큰에서 username과 role 획득
         String username = jwtUtil.getUsername(accessToken);
         String role = jwtUtil.getRole(accessToken);
+        Member member = memberRepository.findByUsername(username);
 
         //userDTO를 생성하여 값 set
         OAuthUserDTO userDTO = OAuthUserDTO.builder()
                 .username(username)
                 .role(role)
+                .member(member)
                 .build();
 
         //UserDetails에 회원 정보 객체 담기

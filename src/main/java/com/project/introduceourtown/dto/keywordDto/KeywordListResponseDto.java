@@ -1,4 +1,4 @@
-package com.project.introduceourtown.dto.flaskDto;
+package com.project.introduceourtown.dto.keywordDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +9,6 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class FlaskRequestDto {
-    String question;
+public class KeywordListResponseDto {
+    List<String> keyword;
 }
