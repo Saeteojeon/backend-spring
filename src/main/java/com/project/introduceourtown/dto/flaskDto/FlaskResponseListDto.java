@@ -4,11 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class FlaskResponseDto {
-    String location;
+public class FlaskResponseListDto {
+    private List<String> keywordList;
 
-    String description;
+    private List<FlaskResponseDto> flaskResponseDto;
 }
