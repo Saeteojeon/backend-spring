@@ -18,7 +18,7 @@ public class FlaskController {
     /**
      * Flask로 데이터 전송
      */
-    @GetMapping("/find/town/{memberId}")
+    @GetMapping("/find/town")
     @Operation(summary = "동네 추천 api")
     public ResponseEntity<?> sendToAIserver(//@AuthenticationPrincipal CustomOAuth2User userDetails,
                                             @PathVariable(value = "memberId")Long memberId,

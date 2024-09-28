@@ -3,6 +3,7 @@ package com.project.introduceourtown.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.introduceourtown.dto.flaskDto.FlaskRequestDto;
+import com.project.introduceourtown.dto.flaskDto.FlaskResponseListDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -19,7 +20,7 @@ public class FlaskService {
     private final ObjectMapper objectMapper;
 
     @Transactional
-    public String sendToFlask(FlaskRequestDto dto) throws JsonProcessingException {
+    public FlaskResponseListDto sendToFlask(FlaskRequestDto dto) throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
 
         //헤더를 JSON으로 설정함
@@ -36,6 +37,6 @@ public class FlaskService {
         String url = "http://3.39.251.155:5001/get/gpt_request";
 
         //Flask 서버로 데이터를 전송하고 받은 응답 값을 return
-        return restTemplate.postForObject(url, entity, String.class);
+        return restTemplate.postForObject(url, entity, FlaskResponseListDto.class);
     }
 }
