@@ -97,9 +97,11 @@ public class SecurityConfig {
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("http://3.37.102.94:8080").permitAll()
                         .requestMatchers("http://3.37.102.94:8081").permitAll()
+                        .requestMatchers("http://localhost:3000").permitAll()
+                        .requestMatchers("http://localhost:3001").permitAll()
                         .requestMatchers("/**").permitAll()
                         .requestMatchers("/reissue").permitAll()
-                        .requestMatchers("/hc" , "/env", "/flask").permitAll()
+                        .requestMatchers("/hc" , "/env", "/flask", "/find/keyword", "/find/town").permitAll()
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         .anyRequest().authenticated());
 
