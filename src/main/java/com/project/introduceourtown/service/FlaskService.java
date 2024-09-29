@@ -35,7 +35,7 @@ public class FlaskService {
         HttpEntity<String> entity = new HttpEntity<String>(param , headers);
 
         //실제 Flask 서버랑 연결하기 위한 URL
-        String url = "http://3.36.255.234:5000/api/recommend-neighborhoods";
+        String url = "http://3.36.50.204:5000/api/recommend-neighborhoods";
 
         //Flask 서버로 데이터를 전송하고 받은 응답 값을 return
         return restTemplate.postForObject(url, entity, FlaskResponseListDto.class);

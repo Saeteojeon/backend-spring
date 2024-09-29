@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FlaskResponseDto {
-    String location;
+    String Location;
 
-    String description;
+    String Description;
 }

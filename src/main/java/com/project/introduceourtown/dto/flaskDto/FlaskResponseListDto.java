@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FlaskResponseListDto {
-    private List<String> keywordList;
-
     private List<FlaskResponseDto> answer;
+
+    private List<String> keywordList;
 }
