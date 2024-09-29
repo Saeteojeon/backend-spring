@@ -30,6 +30,7 @@ public class FlaskService {
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         String param = objectMapper.writeValueAsString(dto);
+        System.out.println("DTP: " + dto);
 
         HttpEntity<String> entity = new HttpEntity<String>(param , headers);
 
