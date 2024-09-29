@@ -18,11 +18,9 @@ public class FlaskController {
     /**
      * Flask로 데이터 전송
      */
-    @GetMapping("/find/town")
+    @PostMapping("/find/town")
     @Operation(summary = "동네 추천 api")
-    public ResponseEntity<?> sendToAIserver(//@AuthenticationPrincipal CustomOAuth2User userDetails,
-                                           // @PathVariable(value = "memberId")Long memberId,
-                                            @RequestBody FlaskRequestDto dto) throws JsonProcessingException {
+    public ResponseEntity<?> sendToAIserver(@RequestBody FlaskRequestDto dto) throws JsonProcessingException {
         // Long memberId = userDetails.getMemberId();
         return ResponseEntity.status(HttpStatus.OK).body(flaskService.sendToFlask(dto));
     }
