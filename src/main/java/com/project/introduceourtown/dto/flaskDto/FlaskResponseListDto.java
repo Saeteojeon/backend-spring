@@ -12,5 +12,5 @@ import java.util.List;
 public class FlaskResponseListDto {
     private List<String> keywordList;
 
-    private List<FlaskResponseDto> flaskResponseDto;
+    private List<FlaskResponseDto> answer;
 }
