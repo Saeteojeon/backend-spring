@@ -25,10 +25,9 @@ public class KakaoMapController {
 
     @PostMapping("/find/keyword/")
     @Operation(summary = "키워드, 반경을 바탕으로 위치 조회")
-    public ResponseEntity<?> kakaoPlace(//@AuthenticationPrincipal CustomOAuth2User userDetails,
-                                           // @PathVariable(value = "memberId")Long memberId,
+    public ResponseEntity<?> kakaoPlace(
+
                                             @RequestBody KakaoMapRequestDto request) {
-       // Long memberId = userDetails.getMemberId();
 
         List<KakaoMapResponseDto> response = kakaoMapService.getPlaceByKeywords(request);
         return ResponseEntity.status(HttpStatus.OK).body(response);
