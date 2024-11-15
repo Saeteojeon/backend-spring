@@ -28,7 +28,7 @@ public class MemberController {
     public ResponseEntity<?> findKeywordList(
             @PathVariable(value = "memberId")Long memberId//@AuthenticationPrincipal CustomOAuth2User customOAuth2User
             ){
-       // Long memberId = customOAuth2User.getMemberId(
+       // Long memberId = customOAuth2User.getMemberId();
         List<Keyword> keywordList = keywordService.findByMemberId(memberId);
         List<String> keywords = keywordService.findKeywordList(keywordList);
         return ResponseEntity.status(HttpStatus.OK).body(new KeywordListResponseDto(keywords));
